@@ -25,14 +25,31 @@ const Playlist = new mongoose.model('Playlist', playlistSchema);
 // Create document or insert data
 const createDocument = async () => {
     try {
-        const reactPlaylist = new Playlist({
-            name:   'Express JS',
-            ctype:  'Back END',
-            videos: 420,
+        const js = new Playlist({
+            name:   'JS',
+            ctype:  'Front END',
+            videos: 0,
             author: 'Shubham',
             active: true,
-        });        
-        const result = await reactPlaylist.save(); //Asynchronous data transaction
+        });
+
+        const mongo = new Playlist({
+            name:   'Mongo DB',
+            ctype:  'DB',
+            videos: 500,
+            author: 'Shubham',
+            active: true,
+        }); 
+
+        const php = new Playlist({
+            name:   'PHP',
+            ctype:  'Back END',
+            videos: 1000,
+            author: 'Shubham',
+            active: true,
+        });    
+
+        const result = await Playlist.insertMany([js, mongo, php]);
         console.log(result);
     }
     catch(err) {

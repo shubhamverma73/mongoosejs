@@ -22,22 +22,14 @@ const playlistSchema = new mongoose.Schema({
 // Collection create
 const Playlist = new mongoose.model('Playlist', playlistSchema);
 
-// Create document or insert data
-const createDocument = async () => {
+const getDocument = async () => {
     try {
-        const reactPlaylist = new Playlist({
-            name:   'Express JS',
-            ctype:  'Back END',
-            videos: 420,
-            author: 'Shubham',
-            active: true,
-        });        
-        const result = await reactPlaylist.save(); //Asynchronous data transaction
-        console.log(result);
+        const result = await Playlist.find({ctype: 'Front END'})
+        .select({name: 1, ctype: 1});
+        console.info(result);    
     }
     catch(err) {
         console.log(err);
     }
-    
 }
-createDocument();
+getDocument();
