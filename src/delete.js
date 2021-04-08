@@ -24,14 +24,9 @@ const Playlist = new mongoose.model('Playlist', playlistSchema);
 
 const updateDocument = async (_id) => {
     try {        
-        const result = await Playlist.updateOne(
+        const result = await Playlist.deleteOne(
             {
                 _id
-            },
-            {
-                $set: {
-                    name: 'React JS'
-                }
             }
         )
         console.info(result); 
@@ -40,4 +35,4 @@ const updateDocument = async (_id) => {
         console.log(err);
     }
 }
-updateDocument('606c2eafed07671224ff32e9');
+updateDocument('606c37477395561af0417883');
