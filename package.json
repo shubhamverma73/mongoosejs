@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "validator": "^13.5.2"
   },
   "devDependencies": {},
   "scripts": {

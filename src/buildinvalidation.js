@@ -12,12 +12,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/reactJS', {
 
 // Schema
 const playlistSchema = new mongoose.Schema({
-    name:   { type: String, required: true, unique: true, uppercase: true, minlength: [2, 'Minimum 2 characters are allowed'], maxlength: 15 },
+    name:   { 
+                type: String,
+                required: true,
+                unique: true,
+                uppercase: true,
+                minlength: [2, 'Minimum 2 characters are allowed'],
+                maxlength: 15
+            },
     ctype:  String,
     videos: Number,
     author: String,
     active: Boolean,
-    date: { type: Date, default: Date.now }
+    date:   { 
+                type: Date,
+                default: Date.now
+            }
 });
 
 // Collection create
